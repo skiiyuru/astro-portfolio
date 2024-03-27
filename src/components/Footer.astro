@@ -1,0 +1,37 @@
+---
+// components
+import Link from "@/components/ui/Link.astro"
+import Container from "@/layouts/Container.astro"
+
+// data
+import { socialData } from "@/data/siteData"
+---
+
+<footer class="py-10 border-t-2">
+  <Container>
+    <div class="flex justify-between items-center gap-2">
+      <p>
+        &copy; <span id="copyright">{new Date().getFullYear()}</span>
+        Stephen Kiiyuru. All rights reserved.
+      </p>
+
+      <ul class="flex gap-4">
+        {
+          socialData.map((item) => (
+            <Link
+              href={item.href}
+              title={item.title}
+              icon={item.icon}
+              classes="size-8"
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </Container>
+</footer>
+
+<script>
+  const copyrightSpan = document.querySelector("#copyright") as HTMLSpanElement
+  copyrightSpan.textContent = new Date().getFullYear().toString()
+</script>

@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/check": "^0.5.10",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource-variable/open-sans": "^5.0.28",
     "@fontsource-variable/pixelify-sans": "^5.0.2",
     "@fontsource/abril-fatface": "^5.0.19",
     "@fontsource/poppins": "^5.0.12",
