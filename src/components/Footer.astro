@@ -1,6 +1,6 @@
 ---
 // components
-import Link from "@/components/ui/Link.astro"
+import NavLink from "@/components/ui/NavLink.astro"
 import Container from "@/layouts/Container.astro"
 
 // data
@@ -18,7 +18,7 @@ import { socialData } from "@/data/siteData"
       <ul class="flex gap-4">
         {
           socialData.map((item) => (
-            <Link
+            <NavLink
               href={item.href}
               title={item.title}
               icon={item.icon}

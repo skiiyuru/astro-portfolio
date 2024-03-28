@@ -1,0 +1,32 @@
+---
+// components
+import { Icon } from "astro-icon/components"
+
+// types
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"a"> & {
+  href: string
+  variant?: "primary" | "secondary" | "badge"
+}
+
+const { href, variant = "primary", ...otherProps } = Astro.props
+
+const styles = {
+  primary: `bg-zinc-950 hover:bg-zinc-500
+  border-4 border-transparent hover:border-zinc-500
+  text-white`,
+  secondary: `border-4 border-zinc-950 hover:border-zinc-500
+  text-zinc-950 hover:text-zinc-500
+  bg-white`,
+  badge: "",
+}
+---
+
+<a
+  href={href}
+  class:list={["py-1 px-4 w-fit font-semibold", styles[variant]]}
+  {...otherProps}
+>
+  <slot />
+</a>

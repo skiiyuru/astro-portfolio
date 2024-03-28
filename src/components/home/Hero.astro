@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets"
+
+import ButtonLink from "@/components/ui/ButtonLink.astro"
+
+import smile from "@/assets/smile.png"
+---
+
+<header
+  aria-label="Introduction to Stephen"
+  class="flex flex-col gap-4 items-center py-10"
+>
+  <Image src={smile} alt="smile" format="avif" class="size-48 text-zinc-950" />
+  <h1 class="text-3xl lg:text-5xl font-display">Hi, I'm Stephen</h1>
+  <p>
+    I'm a Front End Engineer obsessed with immersive <strong>3D</strong> experiences.
+  </p>
+  <div class="flex gap-4">
+    <ButtonLink href={"#"}>Download Resume</ButtonLink>
+    <ButtonLink href={"#"} variant="secondary">Let's Connect</ButtonLink>
+  </div>
+</header>

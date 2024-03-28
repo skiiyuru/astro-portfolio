@@ -1,5 +1,5 @@
 ---
-import Link from "@/components/ui/Link.astro"
+import NavLink from "@/components/ui/NavLink.astro"
 
 const navData = [
   {
@@ -22,7 +22,7 @@ const navData = [
   <ul class="flex items-center gap-4">
     {
       navData.map((item) => (
-        <Link icon={item.icon} href={item.href} title={item.title} />
+        <NavLink icon={item.icon} href={item.href} title={item.title} />
       ))
     }
   </ul>
