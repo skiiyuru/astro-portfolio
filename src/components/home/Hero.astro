@@ -2,6 +2,7 @@
 import { Image } from "astro:assets"
 
 import ButtonLink from "@/components/ui/ButtonLink.astro"
+import Heading from "@/components/ui/Heading.astro"
 
 import smile from "@/assets/smile.png"
 ---
@@ -11,7 +12,7 @@ import smile from "@/assets/smile.png"
   class="flex flex-col gap-4 items-center py-10"
 >
   <Image src={smile} alt="smile" format="avif" class="size-48 text-zinc-950" />
-  <h1 class="text-3xl lg:text-5xl font-display">Hi, I'm Stephen</h1>
+  <Heading tagName="h1">Hi, I'm Stephen</Heading>
   <p>
     I'm a Front End Engineer obsessed with immersive <strong>3D</strong> experiences.
   </p>

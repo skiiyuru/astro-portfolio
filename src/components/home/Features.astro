@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components"
 import { getCollection } from "astro:content"
 
+import Heading from "@/components/ui/Heading.astro"
+
 const features = await getCollection("features")
 ---
 
@@ -9,18 +11,15 @@ const features = await getCollection("features")
   class="flex flex-col items-center border-t-2 py-10 gap-10"
   aria-label="Features Banner"
 >
-  <h2 class="text-2xl lg:text-4xl font-bold">
-    I build fast, sleek, modern websites.
-  </h2>
+  <Heading tagName="h2">I build fast, sleek, modern websites.</Heading>
+
   <ul class="flex gap-10 justify-center">
     {
       features.map(({ data }) => (
         <li class="flex flex-col gap-2 items-center">
           <Icon name={data.icon} class="size-20" />
-          <h3 class="text-xl lg:text-3xl font-display font-semibold">
-            {data.title}
-          </h3>
-          <p>{data.description}</p>
+          <Heading tagName="h3">{data.title}</Heading>
+          <p class="text-center">{data.description}</p>
         </li>
       ))
     }
