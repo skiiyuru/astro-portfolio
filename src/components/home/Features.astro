@@ -3,25 +3,28 @@ import { Icon } from "astro-icon/components"
 import { getCollection } from "astro:content"
 
 import Heading from "@/components/ui/Heading.astro"
+import Container from "@/layouts/Container.astro"
 
 const features = await getCollection("features")
 ---
 
-<section
-  class="flex flex-col items-center border-t-2 py-10 gap-10"
-  aria-label="Features Banner"
->
-  <Heading tagName="h2">I build fast, sleek, modern websites.</Heading>
+<Container>
+  <section
+    class="flex flex-col items-center py-10 gap-10"
+    aria-label="Features Banner"
+  >
+    <Heading tagName="h2">I build fast, sleek, modern websites.</Heading>
 
-  <ul class="flex gap-10 justify-center">
-    {
-      features.map(({ data }) => (
-        <li class="flex flex-col gap-2 items-center">
-          <Icon name={data.icon} class="size-20" />
-          <Heading tagName="h3">{data.title}</Heading>
-          <p class="text-center">{data.description}</p>
-        </li>
-      ))
-    }
-  </ul>
-</section>
+    <ul class="flex gap-10 justify-center">
+      {
+        features.map(({ data }) => (
+          <li class="flex flex-col gap-2 items-center">
+            <Icon name={data.icon} class="size-20" />
+            <Heading tagName="h3">{data.title}</Heading>
+            <p class="text-center">{data.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</Container>

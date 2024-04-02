@@ -5,19 +5,27 @@ import ButtonLink from "@/components/ui/ButtonLink.astro"
 import Heading from "@/components/ui/Heading.astro"
 
 import smile from "@/assets/smile.png"
+import Container from "@/layouts/Container.astro"
 ---
 
-<header
-  aria-label="Introduction to Stephen"
-  class="flex flex-col gap-4 items-center py-10"
->
-  <Image src={smile} alt="smile" format="avif" class="size-48 text-zinc-950" />
-  <Heading tagName="h1">Hi, I'm Stephen</Heading>
-  <p>
-    I'm a Front End Engineer obsessed with immersive <strong>3D</strong> experiences.
-  </p>
-  <div class="flex gap-4">
-    <ButtonLink href={"#"}>Download Resume</ButtonLink>
-    <ButtonLink href={"#"} variant="secondary">Let's Connect</ButtonLink>
-  </div>
-</header>
+<Container>
+  <header
+    aria-label="Introduction to Stephen"
+    class="flex flex-col gap-4 items-center py-10"
+  >
+    <Image
+      src={smile}
+      alt="smile"
+      format="avif"
+      class="size-48 text-zinc-950"
+    />
+    <Heading tagName="h1">Hi, I'm Stephen</Heading>
+    <p>
+      I'm a Front End Engineer obsessed with immersive <strong>3D</strong> experiences.
+    </p>
+    <div class="flex gap-4">
+      <ButtonLink href={"#"}>Download Resume</ButtonLink>
+      <ButtonLink href={"#"} variant="secondary">Let's Connect</ButtonLink>
+    </div>
+  </header>
+</Container>
