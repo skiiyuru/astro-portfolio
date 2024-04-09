@@ -15,7 +15,7 @@ const features = await getCollection("features")
   >
     <Heading tagName="h2">I build fast, sleek, modern websites.</Heading>
 
-    <ul class="flex gap-10 justify-center">
+    <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {
         features.map(({ data }) => (
           <li class="flex flex-col gap-2 items-center">
