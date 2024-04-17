@@ -19,7 +19,9 @@ const projects = await getCollection("projects")
       <p class="md:w-72 text-center">
         Here are some recent websites and apps you can explore for yourself
       </p>
-      <ButtonLink href="#" variant="secondary">See all projects</ButtonLink>
+      <ButtonLink href="/projects" variant="secondary"
+        >See all projects</ButtonLink
+      >
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {projects.slice(0, 3).map(({ data }) => <ProjectCard data={data} />)}
