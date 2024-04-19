@@ -1,0 +1,54 @@
+---
+import type { CollectionEntry } from "astro:content"
+import type { GetStaticPaths } from "astro"
+
+import BaseLayout from "@/layouts/BaseLayout.astro"
+import Container from "@/layouts/Container.astro"
+import { Image } from "astro:assets"
+import { getCollection } from "astro:content"
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection("posts", (post) => !post.data.isDraft)
+  return allPosts.map((post) => {
+    return {
+      params: {
+        slug: post.slug,
+      },
+      props: {
+        post: post,
+      },
+    }
+  })
+}) satisfies GetStaticPaths
+
+type Props = {
+  post: CollectionEntry<"posts">
+}
+
+const { slug } = Astro.params
+const { post } = Astro.props
+
+const { Content } = await post.render()
+
+const { title, description, pubDate, image } = post.data
+---
+
+<BaseLayout title={title} description={description}>
+  <Container>
+    <div class="grid gap-4 py-10">
+      <section aria-label="Post metadata" class="grid justify-center">
+        <header></header>
+        <Image
+          class="border-4"
+          src={image}
+          alt={title}
+          width={1000}
+          height={400}
+        />
+      </section>
+      <section aria-label="Post content" class="md:w-2/3 lg:w-1/2">
+        <Content />
+      </section>
+    </div>
+  </Container>
+</BaseLayout>
