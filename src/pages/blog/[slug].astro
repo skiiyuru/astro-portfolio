@@ -6,6 +6,10 @@ import BaseLayout from "@/layouts/BaseLayout.astro"
 import Container from "@/layouts/Container.astro"
 import { Image } from "astro:assets"
 import { getCollection } from "astro:content"
+import FormattedDate from "@/components/ui/FormattedDate.astro"
+import Heading from "@/components/ui/Heading.astro"
+
+import smile from "@/assets/smile.png"
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection("posts", (post) => !post.data.isDraft)
@@ -35,19 +39,44 @@ const { title, description, pubDate, image } = post.data
 
 <BaseLayout title={title} description={description}>
   <Container>
-    <div class="grid gap-4 py-10">
-      <section aria-label="Post metadata" class="grid justify-center">
-        <header></header>
+    <div class="flex flex-col items-center gap-10 py-10">
+      <section
+        aria-label="Post metadata"
+        class="flex flex-col gap-10 items-center"
+      >
+        <header class="flex flex-col items-center gap-2">
+          <FormattedDate pubDate={pubDate} />
+          <Heading classes="lg:max-w-3xl text-center text-pretty" tagName="h2"
+            >{title}</Heading
+          >
+          <p class="max-w-prose text-center text-pretty md:w-4/5 lg:w-3/5">
+            {description}
+          </p>
+        </header>
         <Image
-          class="border-4"
+          class="border-4 border-dashed border-zinc-950 lg:max-w-3xl"
           src={image}
           alt={title}
-          width={1000}
-          height={400}
         />
       </section>
-      <section aria-label="Post content" class="md:w-2/3 lg:w-1/2">
-        <Content />
+      <section aria-label="Post content" class="flex flex-col items-center">
+        <div class="lg:max-w-3xl max-w-prose text-pretty text-justify">
+          <Content />
+        </div>
+      </section>
+
+      <section aria-label="Post author" class="max-w-3xl">
+        <div class="flex flex-wrap items-center gap-4">
+          <Image class="w-1/2 lg:w-1/5" src={smile} alt={title} />
+          <div class="flex flex-col gap-2 lg:w-3/4">
+            <Heading classes="" tagName="h2">Hey, I'm Stephen</Heading>
+            <p class="max-w-prose text-pretty text-justify">
+              I like to write about productivity, web development, design and
+              working with clients. Get a sense of what it's like to work with
+              me and understand my process.
+            </p>
+          </div>
+        </div>
       </section>
     </div>
   </Container>

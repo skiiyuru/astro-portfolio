@@ -1,5 +1,5 @@
 ---
-const classes = {
+const styles = {
   h1: "text-3xl lg:text-5xl font-display",
   h2: "text-2xl lg:text-4xl font-bold",
   h3: "text-xl lg:text-3xl font-display font-semibold",
@@ -7,14 +7,15 @@ const classes = {
 }
 
 type Props = {
-  tagName: keyof typeof classes
+  tagName: keyof typeof styles
+  classes?: string
 }
 
-const { tagName } = Astro.props
+const { tagName, classes } = Astro.props
 
 const Tag = tagName
 ---
 
-<Tag class:list={[classes[tagName]]}>
+<Tag class:list={[styles[tagName], classes]}>
   <slot />
 </Tag>
