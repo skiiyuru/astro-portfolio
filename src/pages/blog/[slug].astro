@@ -29,7 +29,6 @@ type Props = {
   post: CollectionEntry<"posts">
 }
 
-const { slug } = Astro.params
 const { post } = Astro.props
 
 const { Content } = await post.render()
