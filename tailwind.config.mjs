@@ -19,13 +19,8 @@ export default {
       fontFamily: {
         sans: ["Poppins", ...defaultTheme.fontFamily.sans],
         display: ["Pixelify Sans Variable", ...defaultTheme.fontFamily.sans],
-        // sans: ["Open Sans Variable", ...defaultTheme.fontFamily.sans],
       },
-      // colors: {
-      //   black: "#090909",
-      //   white: "#fff",
-      // },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }
