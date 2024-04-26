@@ -20,8 +20,10 @@ const features = await getCollection("features")
         features.map(({ data }) => (
           <li class="flex flex-col gap-2 items-center">
             <Icon name={data.icon} class="size-20" />
-            <Heading tagName="h3">{data.title}</Heading>
-            <p class="text-center">{data.description}</p>
+            <Heading tagName="h3" classes="text-center text-balance">
+              {data.title}
+            </Heading>
+            <p class="text-center text-balance">{data.description}</p>
           </li>
         ))
       }

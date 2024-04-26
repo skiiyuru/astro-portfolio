@@ -1,0 +1,6 @@
+title: Portal scene
+thumbnail: ./thumbnails/portal.png
+url: "https://kiiyuru-portal.vercel.app/"
+icons:
+  - three
+  - blender

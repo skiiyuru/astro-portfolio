@@ -1,6 +1,6 @@
 title: Marble Race
-thumbnail: ./thumbnails/imla.png
-url: "https://imla.io/"
+thumbnail: ./thumbnails/race.png
+url: "https://sk-marble-race.vercel.app/"
 icons:
-  - javascript
-  - css
+  - react
+  - three

@@ -21,7 +21,7 @@ export const getStaticPaths = (async ({ paginate }) => {
         new Date(b.data.pubDate).getUTCDate() -
         new Date(a.data.pubDate).getUTCDate()
     ),
-    { pageSize: 2 }
+    { pageSize: 3 }
   )
 }) satisfies GetStaticPaths
 

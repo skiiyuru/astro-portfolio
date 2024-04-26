@@ -16,6 +16,6 @@ const { tagName, classes } = Astro.props
 const Tag = tagName
 ---
 
-<Tag class:list={[styles[tagName], classes]}>
+<Tag class:list={["text-balance", styles[tagName], classes]}>
   <slot />
 </Tag>

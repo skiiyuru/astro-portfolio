@@ -1,0 +1,6 @@
+title: Floating Mac
+thumbnail: ./thumbnails/laptop.png
+url: "https://kiiyuru-mac.vercel.app/"
+icons:
+  - react
+  - three

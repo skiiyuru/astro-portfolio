@@ -1,6 +1,7 @@
 title: 3D Portfolio
-thumbnail: ./thumbnails/imla.png
-url: "https://imla.io/"
+thumbnail: ./thumbnails/portfolio.png
+url: "https://skiiyuru.vercel.app/"
 icons:
-  - javascript
-  - css
+  - react
+  - three
+  - tailwind

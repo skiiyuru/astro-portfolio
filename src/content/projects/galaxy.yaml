@@ -1,0 +1,6 @@
+title: Create your own galaxy
+thumbnail: ./thumbnails/galaxy.png
+url: "https://kiiyuru-galaxy.vercel.app/"
+icons:
+  - three
+  - glsl
