@@ -22,4 +22,9 @@ export const socialData = [
     icon: "twitter",
     title: "Twitter",
   },
+  {
+    href: "/rss.xml",
+    icon: "rss",
+    title: "RSS Feed",
+  },
 ]
