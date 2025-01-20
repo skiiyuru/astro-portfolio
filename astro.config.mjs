@@ -11,6 +11,5 @@ export default defineConfig({
     prefetchAll: true,
   },
   integrations: [tailwind(), icon(), sitemap()],
-  output: "hybrid",
   adapter: netlify(),
 })

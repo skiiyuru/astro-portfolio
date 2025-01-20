@@ -1,7 +1,8 @@
+import { glob } from "astro/loaders"
 import { defineCollection, reference, z } from "astro:content"
 
 const features = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/[^_]*.yaml", base: "./src/content/features" }),
   schema: z.object({
     title: z.string(),
     description: z.string(),
@@ -10,7 +11,7 @@ const features = defineCollection({
 })
 
 const tools = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/[^_]*.yaml", base: "./src/content/tools" }),
   schema: z.object({
     title: z.string(),
     icon: z.string(),
@@ -18,7 +19,7 @@ const tools = defineCollection({
 })
 
 const projects = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/[^_]*.yaml", base: "./src/content/projects" }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
@@ -29,7 +30,7 @@ const projects = defineCollection({
 })
 
 const posts = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/posts" }),
   schema: ({ image }) =>
     z.object({
       title: z.string().max(65, {
@@ -38,9 +39,7 @@ const posts = defineCollection({
       description: z.string().max(165, {
         message: "Description cannot be longer than 165 characters",
       }),
-      image: image().refine((img) => img.width >= 1000, {
-        message: "Image must be 1000px wide or more",
-      }),
+      image: image(),
       pubDate: z.date(),
       isDraft: z.boolean().optional(),
     }),
