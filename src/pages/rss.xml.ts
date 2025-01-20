@@ -3,7 +3,7 @@ import rss from "@astrojs/rss"
 import type { APIContext, APIRoute } from "astro"
 import { getCollection } from "astro:content"
 
-export async function GET(context) {
+export async function GET(context: APIContext) {
   const blog = await getCollection("posts")
 
   return rss({

@@ -1,0 +1,79 @@
+---
+
+---
+
+<canvas class="webgl"></canvas>
+
+<script>
+  import * as THREE from "three"
+  import { OrbitControls } from "three/addons/controls/OrbitControls.js"
+
+  // Scene
+  const scene = new THREE.Scene()
+
+  // Box
+  const box = new THREE.Mesh(
+    new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial({ wireframe: true })
+  )
+  scene.add(box)
+
+  // Camera
+  const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight,
+  }
+  const camera = new THREE.PerspectiveCamera(
+    45,
+    sizes.width / sizes.height,
+    0.1,
+    100
+  )
+
+  camera.position.z = 4
+  camera.position.y = 2
+  camera.lookAt(box.position)
+  scene.add(camera)
+
+  // Renderer
+  const canvas = document.querySelector("canvas.webgl")
+  const renderer = new THREE.WebGLRenderer({ canvas: canvas })
+  renderer.setSize(sizes.width, sizes.height)
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+  // Controls
+  const controls = new OrbitControls(camera, canvas)
+  controls.enableDamping = true
+
+  // Handle resize
+  window.addEventListener("resize", (e) => {
+    sizes.width = e.target.innerWidth
+    sizes.height = e.target.innerHeight
+
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  })
+
+  // Clock
+  const clock = new THREE.Clock()
+
+  // Tick
+  function tick() {
+    // rotate box
+    const elapsedTime = clock.getElapsedTime()
+    box.rotation.y = elapsedTime * 0.3
+
+    // update controls
+    controls.update()
+
+    // Render
+    renderer.render(scene, camera)
+
+    window.requestAnimationFrame(tick)
+  }
+
+  tick()
+</script>
