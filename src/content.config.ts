@@ -25,7 +25,7 @@ const projects = defineCollection({
       title: z.string(),
       icons: z.array(reference("tools")),
       url: z.string().url(),
-      thumbnail: image(),
+      thumbnail: z.string().url(),
     }),
 })
 
@@ -39,7 +39,7 @@ const posts = defineCollection({
       description: z.string().max(165, {
         message: "Description cannot be longer than 165 characters",
       }),
-      image: image(),
+      image: z.string().url(),
       pubDate: z.date(),
       isDraft: z.boolean().optional(),
     }),

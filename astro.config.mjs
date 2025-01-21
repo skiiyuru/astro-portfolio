@@ -12,4 +12,7 @@ export default defineConfig({
   },
   integrations: [tailwind(), icon(), sitemap()],
   adapter: netlify(),
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
 })
